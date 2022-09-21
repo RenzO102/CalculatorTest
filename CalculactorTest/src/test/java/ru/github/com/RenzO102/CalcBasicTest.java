@@ -38,20 +38,20 @@ public class CalcBasicTest {
     @Test
     public void testMultiply() {
 
-        assertThat("Error", calc.evaluate1("3+2"), is(5));
+        assertThat("Error", calc.evaluate(String.valueOf(3+2)), is(5));
     }
 
     @Test
     public void testMultiplication() {
 
-        assertThat("Error", calc.evaluate2("12.2*5"), is(61));
+        assertThat("Error", calc.evaluate(String.valueOf(12.2*5)), is(61));
 
     }
 
     @Test
     public void testParametr() {
 
-        assertThat("Error", calc.evaluate2(expression), is(result));
+        assertThat("Error", calc.evaluate(expression), is(result));
 
 
     }
