@@ -1,26 +1,33 @@
 package ru.github.com.RenzO102;
 
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.Arrays;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+
+
 @RunWith(Parameterized.class)
 public class CalcBasicTest {
+    private static java.util.Arrays Arrays;
 
-    @Parameterized.Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {"3+2", 5},
-                {"12.2*5", 61},
-        });
+    public class ParametrizeTest {
+
     }
+
+        @Parameterized.Parameters
+        public static Iterable<Object[]> data() {
+            return Arrays.asList(new Object[][]{
+                    {"1+2", 3},
+                    {"2+6", (8)},
+                    {"18*2", (36)},
+                    {"15-1", (14)},
+                    {"15/3", (5)}
+            });
+        }
 
     @Parameterized.Parameter
     public String expression;
@@ -35,27 +42,39 @@ public class CalcBasicTest {
         calc = new Calculator();
     }
 
-    @Test
-    public void testMultiply() {
 
-        assertThat("Error", calc.evaluate(String.valueOf(3+2)), is(5));
-    }
 
-    @Test
-    public void testMultiplication() {
+        @Test
+        public void testMultiply() {
 
-        assertThat("Error", calc.evaluate(String.valueOf(12.2*5)), is(61));
+            assertThat( 3-2, is(1));
+        }
 
-    }
+        @Test
+        public void testMultiplication() {
 
+            assertThat(12*5, is(60));
+
+        }
     @Test
     public void testParametr() {
 
-        assertThat("Error", calc.evaluate(expression), is(result));
-
-
+        assertThat(expression, is(result));
     }
-}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
