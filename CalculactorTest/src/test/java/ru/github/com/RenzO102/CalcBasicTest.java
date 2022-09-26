@@ -8,8 +8,6 @@ import org.junit.runners.Parameterized;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-
-
 @RunWith(Parameterized.class)
 public class CalcBasicTest {
     private final int v1;
@@ -22,8 +20,7 @@ public class CalcBasicTest {
         this.v2 = v2;
         this.v3 = v3;
     }
-
-
+    
     @Parameterized.Parameters
     public static Iterable<Object[]> data() {
         return Arrays.asList(new Object[][]{
@@ -32,87 +29,23 @@ public class CalcBasicTest {
                 {18, 18, 36},
                 {15, 1, 16},
                 {15, 3, 18},
-
         });
     }
-
-
+    
     private Calculator calc;
-
-
+    
     @Before
     public void initCalculator() {
         calc = new Calculator();
     }
-
-
+    
     @Test
-    public void testMultiply() {
-
-        assertThat(3 - 2, is(1));
+    public void shouldBeTestParameterSum() {
+        assertThat("Should be a different amount", calc.sum(v1, v2), is(v3));
     }
-
+    
     @Test
-    public void testMultiplication() {
-
-        assertThat(12 * 5, is(60));
-
-    }
-
-    @Test
-    public void testParametersum() {
-
-        assertThat("dsdfsd", calc.sum(v1, v2), is(v3));
-
-    }
-
-    @Test
-    public void testParameterminus() {
-
-        assertThat("dsdfsd", calc.minus(v3, v2), is(v1));
-
-
+    public void shouldBeTestParameterSubtraction() {
+        assertThat("Should  be another difference", calc.subtraction(v3, v2), is(v1));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
