@@ -12,30 +12,33 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class CalcBasicTest {
+    private final int v1;
+    private final int v2;
+    private final int v3;
     private static java.util.Arrays Arrays;
 
-    public class ParametrizeTest {
-
+    public CalcBasicTest(int v1, int v2, int v3) {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
     }
 
-        @Parameterized.Parameters
-        public static Iterable<Object[]> data() {
-            return Arrays.asList(new Object[][]{
-                    {"1+2", 3},
-                    {"2+6", (8)},
-                    {"18*2", (36)},
-                    {"15-1", (14)},
-                    {"15/3", (5)}
-            });
-        }
 
-    @Parameterized.Parameter
-    public String expression;
+    @Parameterized.Parameters
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {1, 2, 3},
+                {2, 6, 8},
+                {18, 18, 36},
+                {15, 1, 16},
+                {15, 3, 18},
 
-    @Parameterized.Parameter(value = 1)
-    public double result;
+        });
+    }
+
 
     private Calculator calc;
+
 
     @Before
     public void initCalculator() {
@@ -43,25 +46,51 @@ public class CalcBasicTest {
     }
 
 
-
-        @Test
-        public void testMultiply() {
-
-            assertThat( 3-2, is(1));
-        }
-
-        @Test
-        public void testMultiplication() {
-
-            assertThat(12*5, is(60));
-
-        }
     @Test
-    public void testParametr() {
+    public void testMultiply() {
 
-        assertThat(expression, is(result));
+        assertThat(3 - 2, is(1));
     }
+
+    @Test
+    public void testMultiplication() {
+
+        assertThat(12 * 5, is(60));
+
     }
+
+    @Test
+    public void testParametersum() {
+
+        assertThat("dsdfsd", calc.sum(v1, v2), is(v3));
+
+    }
+
+    @Test
+    public void testParameterminus() {
+
+        assertThat("dsdfsd", calc.minus(v3, v2), is(v1));
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
