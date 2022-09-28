@@ -45,6 +45,6 @@ public class CalcBasicTest {
     
     @Test
     public void shouldBeTestParameterSubtraction() {
-        assertThat("Should  be another difference", firstSummand - secondSummand,is(sum));
+        assertThat("Should  be another difference", sum - firstSummand,is(secondSummand));
     }
 }
