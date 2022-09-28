@@ -10,18 +10,8 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class CalcBasicTest {
-    private final int v1;
-    private final int v2;
-    private final int v3;
     private static java.util.Arrays Arrays;
-
-    public CalcBasicTest(int v1, int v2, int v3) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
-    }
-    
-    @Parameterized.Parameters
+ @Parameterized.Parameters(name = "{index}: {0} + {1} = {2}")
     public static Iterable<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {1, 2, 3},
@@ -32,6 +22,15 @@ public class CalcBasicTest {
         });
     }
     
+     @Parameterized.Parameter
+    public int firstSummand;
+
+    @Parameterized.Parameter
+    public int secondSummand;
+
+    @Parameterized.Parameter
+    public int sum;
+
     private Calculator calc;
     
     @Before
@@ -41,11 +40,11 @@ public class CalcBasicTest {
     
     @Test
     public void shouldBeTestParameterSum() {
-        assertThat("Should be a different amount", calc.sum(v1, v2), is(v3));
+        assertThat("Should be a different amount", firstSummand + secondSummand,is(sum));
     }
     
     @Test
     public void shouldBeTestParameterSubtraction() {
-        assertThat("Should  be another difference", calc.subtraction(v3, v2), is(v1));
+        assertThat("Should  be another difference", firstSummand - secondSummand,is(sum));
     }
 }
