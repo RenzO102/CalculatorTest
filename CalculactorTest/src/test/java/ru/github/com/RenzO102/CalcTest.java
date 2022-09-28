@@ -15,12 +15,12 @@ public class CalcTest {
     }
 
     @Test
-    public void testMultiply() {
+    public void shouldTestSumTwoDigits() {
         assertThat(3 - 2, is(1));
     }
 
     @Test
-    public void testMultiplication() {
+    public void shouldTestDifferenceTwoDigits() {
         assertThat(12 * 5, is(60));
     }
 }
